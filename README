@@ -11,7 +11,13 @@ possibilité d'utiliser la baguette droite ou gauche du bol
 think -> eat -> sleep
 after sleep => eat/think (However, if neighbour think already, eat at priority)
 
+eat : 2 baguettes
+sleep : 0
+think : 1 baguette
+
 think & eat ont un temps de durée à limiter.
 
 une baguette ne peut être utilisé deux fois.
  
+
+1 mutex par baguette // utilise trylock OU utiliser pthread_mutex_lock // 1 thread par philosophe
