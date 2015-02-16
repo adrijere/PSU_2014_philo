@@ -1,0 +1,17 @@
+faire fichier auteur : login_x;login_y
+
+PHILOSOPHE
+------------
+7 philosophes
+7 bol de riz
+7 baguettes
+possibilité d'utiliser la baguette droite ou gauche du bol
+3 étapes ==> eat, think, sleep
+
+think -> eat -> sleep
+after sleep => eat/think (However, if neighbour think already, eat at priority)
+
+think & eat ont un temps de durée à limiter.
+
+une baguette ne peut être utilisé deux fois.
+ 
