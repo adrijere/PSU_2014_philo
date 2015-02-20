@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Fri Feb 20 14:16:11 2015 Valentin Cardon
+** Last update Fri Feb 20 14:17:58 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
@@ -25,11 +25,11 @@ enum		e_status
     SLEEPING
   };
 
-typedef struct	s_philo
+typedef struct		s_philo
 {
-  int		numb_philo;
-  e_status     	status;
-  int		gook;
-}		t_philo;
+  int			numb_philo;
+  enum e_status     	status;
+  int			gook;
+}			t_philo;
 
 #endif /* !PHILOSOPHES_H_ */
