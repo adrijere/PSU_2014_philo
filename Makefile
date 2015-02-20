@@ -5,14 +5,14 @@
 ## Login   <mathon_j@epitech.net>
 ## 
 ## Started on  Fri Feb 20 09:35:47 2015 Jérémy MATHON
-## Last update Fri Feb 20 09:38:05 2015 Jérémy MATHON
+## Last update Fri Feb 20 14:12:09 2015 Valentin Cardon
 ##
 
 CC	=	cc
 
 NAME	=	philo
 
-SRC	=	
+SRC	=	source/main.c
 
 OBJ	=	$(SRC:.c=.o)
 
