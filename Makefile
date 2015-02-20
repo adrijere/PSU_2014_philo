@@ -5,7 +5,7 @@
 ## Login   <mathon_j@epitech.net>
 ## 
 ## Started on  Fri Feb 20 09:35:47 2015 Jérémy MATHON
-## Last update Fri Feb 20 14:12:09 2015 Valentin Cardon
+## Last update Fri Feb 20 14:15:48 2015 Valentin Cardon
 ##
 
 CC	=	cc
@@ -16,7 +16,7 @@ SRC	=	source/main.c
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -Werror -lpthread
+CFLAGS	=	-Wall -Wextra -Werror -lpthread -I include/
 
 all:		$(NAME)
 
