@@ -5,15 +5,21 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Mon Feb 16 13:41:12 2015 Jérémy MATHON
+** Last update Fri Feb 20 09:38:29 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
 # define PHILOSOPHES_H_
 
+# include	<pthread.h>
+
 # define	NB_PHILO	7
 
 # define	GOOK_SIZE	100
+
+# define	TIME_EAT	50
+
+# define	TIME_THINK	50
 
 enum		e_status
   {
@@ -24,7 +30,7 @@ enum		e_status
 
 typedef		s_philo
 {
-  int		philo;
+  int		numb_philo;
   e_status     	status;
   int		gook;
 }		t_philo;
