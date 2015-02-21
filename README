@@ -21,3 +21,7 @@ une baguette ne peut être utilisé deux fois.
  
 
 1 mutex par baguette // utilise trylock OU utiliser pthread_mutex_lock // 1 thread par philosophe
+
+OPTIMISTATION A FAIRE :
+NOM DES PHILOSOPHES VIA UNE ENUM
+SAUVEGARDER CHAQUE STATUS ET AFFICHER A LA FIN DU PROGRAMME L'HISTORY
