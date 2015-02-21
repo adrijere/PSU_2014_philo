@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:14:10 2015 Jérémy MATHON
-** Last update Fri Feb 20 14:57:51 2015 Jérémy MATHON
+** Last update Sat Feb 21 19:05:30 2015 Jérémy MATHON
 */
 
 #include	"philosophes.h"
@@ -17,10 +17,24 @@ void		init_ressources()
   i = 0;
   while (i < NB_PHILO)
     {
-      printf("Le philosophe %d rejoint la table des philosophes avec un bol de riz de %d grains de riz.\n", i + 1, GOOK_SIZE);
       g_philo[i].numb_philo = i;
       g_philo[i].status = SLEEPING;
       g_philo[i].gook = GOOK_SIZE;
+      g_philo[i].hunger = 20 + (rand() % 20);
+      g_chopsticks[i] = 0;
+      pthread_create(&(g_philo[i].handler), NULL, handler_table_philo, &g_philo[i]);
       i++;
+    }
+}
+
+void        waiting_chopsticks()
+{
+  int     i;
+
+  i = 0;
+  while (i < 7)
+    {
+      pthread_join((g_philo[i].handler), NULL);
+      i = i + 1;
     }
 }

@@ -5,26 +5,29 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Fri Feb 20 14:50:10 2015 Jérémy MATHON
+** Last update Sat Feb 21 17:03:39 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
 # define PHILOSOPHES_H_
 
+# include	<time.h>
+# include	<stdlib.h>
 # include	<stdio.h>
 # include	<pthread.h>
+# include	<unistd.h>
 
 # define	NB_PHILO	7
 # define	GOOK_SIZE	100
-# define	TIME_EAT	50
-# define	TIME_THINK	50
+# define	TIME_EAT	05
+# define	TIME_THINK	10
+# define	TIME_SLEEP	15
 
 enum		e_status
   {
     EATING = 0,
     THINKING,
-    SLEEPING,
-    HUNGRY
+    SLEEPING
   };
 
 typedef struct		s_philo
@@ -32,11 +35,21 @@ typedef struct		s_philo
   int			numb_philo;
   enum e_status     	status;
   int			gook;
-  pthread_t		*handler;
+  pthread_t		handler;
+  int			hunger;
 }			t_philo;
 
 extern	t_philo	g_philo[NB_PHILO];
 
+extern	pthread_mutex_t	g_mutex;
+
+extern	int	g_chopsticks[NB_PHILO];
+
 void		init_ressources();
+void		philo_eating(t_philo *);
+void		philo_thinking(t_philo *);
+void		philo_sleeping(t_philo *);
+void		*handler_table_philo(void *);
+void		waiting_chopsticks();
 
 #endif /* !PHILOSOPHES_H_ */
