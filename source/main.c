@@ -5,7 +5,7 @@
 ** Login   <cardon_v@epitech.net>
 **
 ** Started on  Fri Feb 20 14:11:40 2015 Valentin Cardon
-** Last update Sat Feb 21 17:03:03 2015 Jérémy MATHON
+** Last update Sun Feb 22 09:47:53 2015 Jérémy MATHON
 */
 
 #include	<stdio.h>
@@ -17,8 +17,9 @@ int		g_chopsticks[NB_PHILO];
 
 int		main()
 {
-  printf("Salut les Philo, bon app'\n");
   srand(time(NULL));
+  if (verif_define() == 1)
+    return (1);
   init_ressources();
   waiting_chopsticks();
   return (0);

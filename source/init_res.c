@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:14:10 2015 Jérémy MATHON
-** Last update Sun Feb 22 09:28:30 2015 Jérémy MATHON
+** Last update Sun Feb 22 09:55:07 2015 Jérémy MATHON
 */
 
 #include	"philosophes.h"
@@ -27,9 +27,9 @@ void		init_ressources()
     }
 }
 
-void        waiting_chopsticks()
+void		waiting_chopsticks()
 {
-  int     i;
+  int		i;
 
   i = 0;
   while (i < 7)
@@ -37,4 +37,24 @@ void        waiting_chopsticks()
       pthread_join((g_philo[i].handler), NULL);
       i = i + 1;
     }
+}
+
+int		verif_define()
+{
+  if (NB_PHILO < 3)
+    {
+      printf("Erreur : le nombre de philosophes doit être supérieur à 3.\n");
+      return (1);
+    }
+  else if (GOOK_SIZE < 0)
+    {
+      printf("Erreur : le nombre de grains de riz dans le bol doit être supérieur à 0.\n");
+      return (1);
+    }
+  else if (TIME_EAT < 0 || TIME_THINK < 0 || TIME_SLEEP < 0)
+    {
+      printf("Erreur : l'un des timers d'activités est inférieur à 0.\n");
+      return (1);
+    }
+  return (0);
 }

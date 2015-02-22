@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Sun Feb 22 09:28:19 2015 Jérémy MATHON
+** Last update Sun Feb 22 09:53:37 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
@@ -17,9 +17,9 @@
 # include	<pthread.h>
 # include	<unistd.h>
 
-# define	NB_PHILO	7
+# define	NB_PHILO	3
 # define	GOOK_SIZE	100
-# define	TIME_EAT	05
+# define	TIME_EAT	5
 # define	TIME_THINK	10
 # define	TIME_SLEEP	15
 
@@ -51,5 +51,6 @@ void		philo_thinking(t_philo *);
 void		philo_sleeping(t_philo *);
 void		*handler_table_philo(void *);
 void		waiting_chopsticks();
+int		verif_define();
 
 #endif /* !PHILOSOPHES_H_ */

@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:41:13 2015 Jérémy MATHON
-** Last update Sat Feb 21 19:10:50 2015 Jérémy MATHON
+** Last update Sun Feb 22 09:53:10 2015 Jérémy MATHON
 */
 
 #include	"philosophes.h"
