@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:14:10 2015 Jérémy MATHON
-** Last update Sun Feb 22 09:55:07 2015 Jérémy MATHON
+** Last update Sun Feb 22 11:00:33 2015 Jérémy MATHON
 */
 
 #include	"philosophes.h"
@@ -17,12 +17,13 @@ void		init_ressources()
   i = 0;
   while (i < NB_PHILO)
     {
-      g_philo[i].numb_philo = i + 1;
+      g_philo[i].id = i + 1;
       g_philo[i].status = SLEEPING;
       g_philo[i].gook = GOOK_SIZE;
       g_philo[i].hunger = 20 + (rand() % 20);
       g_chopsticks[i] = 0;
-      pthread_create(&(g_philo[i].handler), NULL, handler_table_philo, &g_philo[i]);
+      pthread_create(&(g_philo[i].handler), NULL,
+		     handler_table_philo, &g_philo[i]);
       i++;
     }
 }
@@ -43,12 +44,14 @@ int		verif_define()
 {
   if (NB_PHILO < 3)
     {
-      printf("Erreur : le nombre de philosophes doit être supérieur à 3.\n");
+      printf("Erreur : le nombre de philosophes ");
+      printf("doit être supérieur à 3.\n");
       return (1);
     }
   else if (GOOK_SIZE < 0)
     {
-      printf("Erreur : le nombre de grains de riz dans le bol doit être supérieur à 0.\n");
+      printf("Erreur : le nombre de grains de riz");
+      printf("dans le bol doit être supérieur à 0.\n");
       return (1);
     }
   else if (TIME_EAT < 0 || TIME_THINK < 0 || TIME_SLEEP < 0)

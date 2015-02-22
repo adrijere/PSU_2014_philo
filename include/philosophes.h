@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Sun Feb 22 09:53:37 2015 Jérémy MATHON
+** Last update Sun Feb 22 10:58:19 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
@@ -17,7 +17,7 @@
 # include	<pthread.h>
 # include	<unistd.h>
 
-# define	NB_PHILO	3
+# define	NB_PHILO	7
 # define	GOOK_SIZE	100
 # define	TIME_EAT	5
 # define	TIME_THINK	10
@@ -32,7 +32,7 @@ enum		e_status
 
 typedef struct		s_philo
 {
-  int			numb_philo;
+  int			id;
   enum e_status     	status;
   int			gook;
   pthread_t		handler;
