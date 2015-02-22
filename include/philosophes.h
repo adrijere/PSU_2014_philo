@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 ** 
 ** Started on  Mon Feb 16 13:23:56 2015 Jérémy MATHON
-** Last update Sat Feb 21 17:03:39 2015 Jérémy MATHON
+** Last update Sun Feb 22 09:28:19 2015 Jérémy MATHON
 */
 
 #ifndef PHILOSOPHES_H_
