@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:41:13 2015 Jérémy MATHON
-** Last update Tue Feb 24 12:18:24 2015 Jérémy MATHON
+** Last update Tue Feb 24 14:13:47 2015 Valentin Cardon
 */
 
 #include	"philosophes.h"
@@ -15,10 +15,10 @@ void		philo_eating(t_philo *t)
   g_chopsticks[t->id] = 1;
   g_chopsticks[(t->id + 1) % 7] = 1;
   printf("Le philosophe %d mange...\n", t->id);
-  sleep(TIME_EAT);
   t->status = EATING;
   t->gook -= t->hunger;
   pthread_mutex_unlock(&g_mutex);
+  sleep(TIME_EAT);
   if (t->gook < 0)
     t->gook = 0;
   printf("Le philosophe %d a mangé %d grains de riz.\n", t->id, t->hunger);
