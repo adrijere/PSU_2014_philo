@@ -5,24 +5,24 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 20 14:41:13 2015 Jérémy MATHON
-** Last update Sun Feb 22 10:58:38 2015 Jérémy MATHON
+** Last update Tue Feb 24 12:18:24 2015 Jérémy MATHON
 */
 
 #include	"philosophes.h"
 
 void		philo_eating(t_philo *t)
 {
-  pthread_mutex_unlock(&g_mutex);
-  printf("Le philosophe %d mange...\n", t->id);
   g_chopsticks[t->id] = 1;
   g_chopsticks[(t->id + 1) % 7] = 1;
+  printf("Le philosophe %d mange...\n", t->id);
   sleep(TIME_EAT);
   t->status = EATING;
   t->gook -= t->hunger;
+  pthread_mutex_unlock(&g_mutex);
   if (t->gook < 0)
     t->gook = 0;
-  printf("Le philosophe %d a mangé %d grains de riz.", t->id, t->hunger);
-  printf("Il lui en reste %d dans son bol.\n", t->gook);
+  printf("Le philosophe %d a mangé %d grains de riz.\n", t->id, t->hunger);
+  printf("Il reste %d dans le bol du philosophe %d.\n", t->gook, t->id);
   pthread_mutex_lock(&g_mutex);
   g_chopsticks[t->id] = 0;
   g_chopsticks[(t->id + 1) % 7] = 0;
@@ -31,7 +31,6 @@ void		philo_eating(t_philo *t)
 
 void		philo_thinking(t_philo *t)
 {
-  pthread_mutex_unlock(&g_mutex);
   t->status = THINKING;
   g_chopsticks[t->id] = 1;
   pthread_mutex_unlock(&g_mutex);
@@ -66,8 +65,7 @@ void		*handler_table_philo(void *arg)
   int		right_chopsticks;
 
   t = (t_philo *)arg;
-  printf("Le philosophe %d rejoint la table des philosophes", t->id);
-  printf("avec un bol de riz de %d grains de riz.\n", GOOK_SIZE);
+  printf("Le philosophe %d rejoint la table des philosophes.\n", t->id);
   while (t->gook > 0)
     {
       pthread_mutex_lock(&g_mutex);
